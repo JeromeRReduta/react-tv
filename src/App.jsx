@@ -5,6 +5,7 @@ import ShowDetails from "./shows/ShowDetails";
 import ShowSelection from "./shows/ShowSelection";
 import { useState } from "react";
 import Header from "./structure/Header";
+import Main from "./structure/Main";
 
 /**
  * React TV is an web streaming platform that allows users to browse
@@ -13,11 +14,20 @@ import Header from "./structure/Header";
 export default function App() {
   const [shows] = useState(tvShows);
   const [selectedShow, setSelectedShow] = useState(null);
+  const [selectedEpisode, setSelectedEpisode] = useState(null);
 
   return (
     <>
-      <Header tvShows={tvShows} setSelectedShow={setSelectedShow} />
-      <Main show={selectedShow} />
+      <Header
+        tvShows={shows}
+        setSelectedShow={setSelectedShow}
+        setSelectedEpisode={setSelectedEpisode}
+      />
+      <Main
+        show={selectedShow}
+        selectedEpisode={selectedEpisode}
+        setSelectedEpisode={setSelectedEpisode}
+      />
     </>
   );
 }

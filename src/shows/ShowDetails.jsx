@@ -1,16 +1,19 @@
-import { useState } from "react";
 import EpisodeDetails from "../episodes/EpisodeDetails";
 import EpisodeList from "../episodes/EpisodeList";
 import "./shows.css";
 
 /** Allows users to browse through the episodes of the given show */
-export default function ShowDetails({ show }) {
-  const [selectedEpisode, setSelectedEpisode] = useState(null);
+export default function ShowDetails({
+  show,
+  selectedEpisode,
+  setSelectedEpisode,
+}) {
   const html = !show ? (
     <div>Select a show to get started!</div>
   ) : (
-    <div>
+    <div className="show-details">
       <EpisodeList
+        className="left episode-list"
         name={show.name}
         episodes={show.episodes}
         selectedEpisode={selectedEpisode}
@@ -19,5 +22,5 @@ export default function ShowDetails({ show }) {
       <EpisodeDetails episode={selectedEpisode} />
     </div>
   );
-  return <div className="show-details">{html}</div>;
+  return <section>{html}</section>;
 }
