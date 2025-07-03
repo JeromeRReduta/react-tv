@@ -1,5 +1,7 @@
 import MockHeader from "./mocks/MockHeader";
 import MockMain from "./mocks/MockMain";
+import { tvShows } from "./shows/data";
+import ShowDetails from "./shows/ShowDetails";
 
 /**
  * React TV is an web streaming platform that allows users to browse
@@ -8,8 +10,7 @@ import MockMain from "./mocks/MockMain";
 export default function App() {
   return (
     <>
-      <MockHeader />
-      <MockMain />
+      <ShowDetails show={tvShows[0]} />
     </>
   );
 }
